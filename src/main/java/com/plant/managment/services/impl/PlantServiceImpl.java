@@ -162,7 +162,7 @@ public class PlantServiceImpl implements PlantService {
                }
            }else{
                // if the plant is not watered yet
-               emailService.sendEmail("hyacinthetsague47@gmail.com", "Arrosage de plante" ,"Veuillez arroser la plant : "+plant.getName());
+               emailService.sendEmail(plant.getUser().getEmail(), "Arrosage de plante" ,"Veuillez arroser la plant : "+plant.getName());
                if(plant.getStatus().equals(Status.WATERED)){
                    plant.setStatus(Status.NON_WATERED);
                    plantRepository.save(plant);
